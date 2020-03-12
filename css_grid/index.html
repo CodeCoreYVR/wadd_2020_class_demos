@@ -11,7 +11,7 @@
         /* grid-template-columns: repeat(3, 1fr); */
         /* grid-column-gap: 1em;
         grid-row-gap: 1em; */
-        grid-gap: 1em;
+        /* grid-gap: 1em; */
         /* grid-gap: 1em 2em; */
         /* grid-auto-rows: 50px 100px 150px; */
 
@@ -26,8 +26,17 @@
         /* grid-auto-rows: 100px; */
 
         /* grid line names */
-        grid-template-columns: [first-column]1fr [col2]1fr [col3]1fr [col4]1fr [last-column];
-        grid-template-rows: [top]100px [section1]100px [section2]100px [bottom];
+        /* grid-template-columns: [first-column]1fr [col2]1fr [col3]1fr [col4]1fr [last-column];
+        grid-template-rows: [top]100px [section1]100px [section2]100px [bottom]; */
+
+        grid-template-columns: repeat(3, 1fr);
+        grid-template-rows: repeat(4, 1fr);
+
+        grid-template-areas:
+          "sidebar header header"
+          "sidebar content content"
+          "sidebar content content"
+          "sidebar footer footer";
       }
 
       .grid > div {
@@ -36,15 +45,15 @@
         padding: 1em;
       }
 
-      .grid > div:nth-child(2) {
-        background-color: maroon;
-        color: white;
-        /* grid-column-start: 2;
+      /* .grid > div:nth-child(2) { */
+      /* background-color: maroon;
+        color: white; */
+      /* grid-column-start: 2;
         grid-column-end: 4; */
-        /* grid areas */
-        /* grid-area: 2 / 2 / 3 / 4; */
-        grid-area: section1 / col2 / section2 / col4;
-      }
+      /* grid areas */
+      /* grid-area: 2 / 2 / 3 / 4; */
+      /* grid-area: section1 / col2 / section2 / col4; */
+      /* } */
 
       /* .grid > div:nth-child(4) {
         background-color: skyblue;
@@ -52,21 +61,33 @@
         grid-row-end: 4;
         grid-row: 2 / 4;
       }  */
+
+      /* grid areas */
+
+      .sidebar {
+        background-color: skyblue;
+        grid-area: sidebar;
+      }
+      .header {
+        background-color: yellow;
+        grid-area: header;
+      }
+      .content {
+        background-color: green;
+        grid-area: content;
+      }
+      .footer {
+        background-color: grey;
+        grid-area: footer;
+      }
     </style>
   </head>
   <body>
     <div class="grid">
-      <div>1</div>
-      <div>2</div>
-      <div>3</div>
-      <div>4</div>
-      <div>5</div>
-      <div>6</div>
-      <div>7</div>
-      <div>8</div>
-      <div>9</div>
-      <div>10</div>
-      <div>11</div>
+      <div class="sidebar">Sidebar</div>
+      <div class="header">Header</div>
+      <div class="content">Content</div>
+      <div class="footer">Footer</div>
     </div>
   </body>
 </html>
